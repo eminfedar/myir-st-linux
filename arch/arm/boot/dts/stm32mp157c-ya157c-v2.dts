@@ -170,7 +170,22 @@
 	status = "okay";
 };
 
+/* SPI */
+&spi1 {
+        pinctrl-names = "default", "sleep";
+        pinctrl-0 = <&spi1_pins_a>;
+        pinctrl-1 = <&spi1_sleep_pins_a>;
+        cs-gpios = <&gpioz 3 0>;
+        status = "okay";
 
+        spi-slave;
+        spidev@0 {
+                compatible = "spidev";
+                spi-max-frequency = <10000000>;
+                reg = <0>;
+        };
+
+};
 
 
 
